@@ -87,6 +87,7 @@ public class OrderController {
         @RequestParam(value = "includeAudit", defaultValue = "false") Boolean includeAudit,
         HttpServletRequest request) {
         CurrentUser user = currentUser(request);
+        System.out.println("ssss");
         OrderDetailVO detail = orderService.getOrderDetail(tenantId, orderId, user);
         Result<OrderDetailVO> result = Result.success(detail);
         result.setTraceId(traceId);
