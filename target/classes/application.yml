@@ -1,0 +1,38 @@
+server:
+  servlet:
+    context-path: /fixture
+    session:
+      cookie:
+        name: SESSION
+spring:
+  application:
+    name: comprehensive-api-test-project
+  mvc:
+    servlet:
+      path: /
+  jackson:
+    default-property-inclusion: non_null
+  security:
+    user:
+      name: fixture-admin
+      password: admin123
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info,metrics,prometheus,env,beans,mappings
+  endpoint:
+    env:
+      enabled: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+druid:
+  stat-view-servlet:
+    enabled: true
+    url-pattern: /druid/*
+    login-username: admin
+    login-password: admin
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
